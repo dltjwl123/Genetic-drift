@@ -54,7 +54,7 @@ pair<int, int> random_state(vector<pair<int, int>>& initial) {
 	uniform_int_distribution<int> dis(0, initial.size() - 1);
 	return initial[dis(gen)];
 }
-void genetic_drift(const int initial_p, const pair<int,int> index) {
+void genetic_drift(const int initial_p, const pair<int,int>& index) {
 	int p = initial_p, total = 0;
 	int row = index.first, col = index.second;
 	string cur = arr[row][col];
@@ -63,7 +63,7 @@ void genetic_drift(const int initial_p, const pair<int,int> index) {
 	else if (row >= 1000 && row < 2000) col_alpha = 'G';
 	else col_alpha = 'M';
 	col_alpha = col_alpha + col;
-	if ((row + 1) % 10 != 0) cout << (row + 1) % 1000 << col_alpha << "\n";
+	if ((row + 1) % 1000 != 0) cout << (row + 1) % 1000 << col_alpha << "\n";
 	else cout << 1000 << col_alpha << "\n";
 	while (p > 0 && p < 10) {
 		cout << "t = " << total << "\n";
